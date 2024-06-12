@@ -8,7 +8,7 @@
 - [Technology Stack](#technology-stack)
 - [Implementation Steps](#implementation-steps)
 - [Example API Endpoints](#example-api-endpoints)
-- [Example Vue.js Components](#example-vue.js-components)
+- [Example Vue Components](#example-vue-components)
 
 ## **Objective:**
 
@@ -118,7 +118,7 @@ To create a Hospital Management System where students can practice developing a 
     - *PUT* `/api/records/{id}` - Update a medical record
     - *DELETE* `/api/records/{id}` - Delete a medical record
 
-## **Example Vue.js Components:**
+## **Example Vue Components:**
 
 - **Login.vue:** Component for user login.
 - **Dashboard.vue:** Dashboard component for admin, doctors, and patients.
