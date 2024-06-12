@@ -1,74 +1,129 @@
-# **Building a Content Management for E-commerce Platform with Vue and Laravel API**
+# Hospital Management System
 
 ## Table of Contents
 
-- [Background](#background)
 - [Objective](#objective)
-- [Requirement](#requirement)
-- [Solution](#solution)
-- [Setup](#setup)
-
-## **Background:**
-
-You are a software engineer working for a company that upgrade the BetaMart to add content management functionality. The upgrade will consist of a front-end application built with React and a back-end API developed with Laravel to handle content management.
+- [Actors](#actors)
+- [Functional Requirements](#functional-requirements)
+- [Technology Stack](#technology-stack)
+- [Implementation Steps](#implementation-steps)
+- [Example API Endpoints](#example-api-endpoints)
+- [Example Vue.js Components](#example-vue.js-components)
 
 ## **Objective:**
 
-The objective of this project is to create a functional content management platform where business owners can add products, edit products, view products, delete products and manages user. 
+To create a Hospital Management System where students can practice developing a web application using Laravel for the backend API and Vue.js for the frontend. This system will manage patients, doctors, appointments, and medical records. 
 
-## **Requirement:**
+## **Actors:**
 
-1. **Front-End Application (Vue):**
+- **Admin:** Manages the system, doctors, and patients.
+- **Doctor:** Views patient records and manages appointments.
+- **Patient:** Books appointments and views their medical records.
 
-    -   Implement a user-friendly interface using Vue to allow users to interact with the content management platform.
-    -   Display a list of available products fetched from the Laravel API.
-    -   Allow users to add, edit, delete items, and manage user.
+## **Functional Requirements:**
 
-2. **Back-End API (Laravel):**
+1. **User Authentication:**
 
-    -   Develop a RESTful API using Laravel to handle requests from the front-end application.
-    -   Implement endpoints to fetch product data from the database and send it to the front end.
-    -   Create endpoints to manage the view products, including adding product, removing products, updating products, and manage user.
+    - *Admin:* Can add, edit, and delete doctors and patients.
+    - *Doctor:* Can view and update patient records, and manage their own appointments.
+    - *Patient:* Can register, book appointments, and view their own medical records.
 
-## **Solution:**
+2. **Patient Management:**
 
-1. **Front-End Development (React):**
+    - *Admin:* Can add, edit, and delete patient records.
+    - *Doctor:* Can view and update patient records.
+    - *Patient:* Can view their own records.
 
-    -   Create Vue components for different sections of the content management platform, such as view product, edit product, delete products, and add products.
-    -   Use Vue Router to handle navigation between different pages of the application.
-    -   Use Fetch API to make HTTP requests to the Laravel API and fetch data.
-    -   Design the user interface to be responsive and accessible across various devices and screen sizes.
+3. **Doctor Management:**
 
-2. **Back-End Development (Laravel):**
+    - *Admin:* Can add, edit, and delete doctor records.
+    - *Doctor:* Can update their own profile and view their appointments.
 
-    -   Set up a Laravel project with appropriate database configurations.
-    -   Define models and migrations to represent products in the database.
-    -   Implement controllers to handle incoming requests from the front end and perform necessary operations, such as fetching product data and CRUD operations.
-    -   Use Laravel's validation features to validate incoming requests and ensure data integrity.
+4. **Appointment Management:**
 
+    - *Admin:* Can view all appointments.
+    - *Doctor:* Can manage their own appointments.
+    - *Patient:* Can book, view, and cancel their appointments.
 
-## Setup
+5. **Medical Records:**
 
-**Clone the project repository:**
+    - *Admin:* Can view all medical records.
+    - *Doctor:* Can update patient medical records.
+    - *Patient:* Can view their own medical records.
 
-```
-    git clone https://github.com/vncnthgy/BetaMart.git
-```
+## **Technology Stack:**
 
-**Go to project directory:**
+- **Backend:** Laravel
+- **Frontend:** Vue.js
+- **Database:** MySQL
+- **Authentication:** Built-in Laravel
 
-```
-    cd BetaMart
-```
+## **Implementation Steps:**
 
-**Install the project dependencies:**
+1. **Setting Up Laravel Backend:**
 
-```
-    npm install
-```
+    - **Step 1:** Install Laravel.
+    - **Step 2:** Set up database connection.
+    - **Step 3:** Create models and migrations for Users, Patients, Doctors, Appointments, and Medical Records.
+    - **Step 4:** Implement authentication using Laravel.
+    - **Step 5:** Create API routes and controllers for managing patients, doctors, appointments, and medical records.
+    - **Step 6:** Set up appropriate relationships between models (e.g., a doctor has many appointments).
 
-**Run the project:**
+2. **Setting Up Vue.js Frontend:**
 
-```
-    npm run serve
-```
+    - **Step 1:** Create a new Vue.js project.
+    - **Step 2:** Install Vue Router and Vuex for state management.
+    - **Step 3:** Create views and components for login, dashboard, patient management, doctor management, and appointment management.
+    - **Step 4:** Implement API calls using Axios to communicate with the Laravel backend.
+    - **Step 5:** Set up authentication handling in Vue.js.
+
+3. **Implementing User Authentication:**
+
+    - **Admin:** Create an interface for managing doctors and patients.
+    - **Doctor:** Create a dashboard to view and manage their appointments and patient records.
+    - **Patient:** Create a user interface for booking appointments and viewing medical records.
+
+## **Example API Endpoints:**
+
+- **Authentication:**
+    - *POST* `/api/register` - Register a new user
+    - *POST* `/api/login` - Login a user
+    - *POST* `/api/logout` - Logout a user
+
+- **Patients:**
+    - *GET* `/api/patients` - Get all patients
+    - *POST* `/api/patients` - Create a new patient
+    - *GET* `/api/patients/{id}` - Get a single patient
+    - *PUT* `/api/patients/{id}` - Update a patient
+    - *DELETE* `/api/patients/{id}` - Delete a patient
+
+- **Doctors:**
+    - *GET* `/api/doctors` - Get all doctors
+    - *POST* `/api/doctors` - Create a new doctor
+    - *GET* `/api/doctors/{id}` - Get a single doctor
+    - *PUT* `/api/doctors/{id}` - Update a doctor
+    - *DELETE* `/api/doctors/{id}` - Delete a doctor
+
+- **Appointments:**
+    - *GET* `/api/appointments` - Get all appointments
+    - *POST* `/api/appointments` - Create a new appointment
+    - *GET* `/api/appointments/{id}` - Get a single appointment
+    - *PUT* `/api/appointments/{id}` - Update a appointment
+    - *DELETE* `/api/appointments/{id}` - Delete a appointment
+
+- **Medical Records:**
+    - *GET* `/api/records` - Get all medical records
+    - *POST* `/api/records` - Create a new medical record
+    - *GET* `/api/records/{id}` - Get a single medical record
+    - *PUT* `/api/records/{id}` - Update a medical record
+    - *DELETE* `/api/records/{id}` - Delete a medical record
+
+## **Example Vue.js Components:**
+
+- **Login.vue:** Component for user login.
+- **Dashboard.vue:** Dashboard component for admin, doctors, and patients.
+- **Patients.vue:** Component to manage patients.
+- **Doctors.vue:** Component to manage doctors.
+- **Appointments.vue:** Component to manage appointments.
+- **MedicalRecords.vue:** Component to manage medical records.
+
